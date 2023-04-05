@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>MyFrame</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">java.awt.Component</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="分层" zoom="0.06692007602280685" showDependencies="false" x="228.0" y="4988.499999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>字段</Category>
+    <Category>方法</Category>
+    <Category>构造函数</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

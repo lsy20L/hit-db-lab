@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>MyFrame</OriginalElement>
+  <nodes>
+    <node x="885.5106382978722" y="19210.0">java.awt.Frame</node>
+    <node x="575.6356382978722" y="14607.0">java.awt.Window</node>
+    <node x="711.2606382978722" y="21924.0">MyFrame</node>
+    <node x="1176.5319148936169" y="71.5">java.awt.MenuContainer</node>
+    <node x="0.0" y="19928.0">javax.swing.RootPaneContainer</node>
+    <node x="358.4999999999999" y="12412.5">javax.accessibility.Accessible</node>
+    <node x="742.9999999999999" y="295.0">java.awt.Component</node>
+    <node x="569.0319148936169" y="0.0">java.awt.image.ImageObserver</node>
+    <node x="922.0319148936169" y="107.5">java.io.Serializable</node>
+    <node x="674.4999999999999" y="10326.0">java.awt.Container</node>
+    <node x="643.7606382978722" y="20890.0">javax.swing.JFrame</node>
+    <node x="277.9999999999999" y="19962.5">javax.swing.WindowConstants</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="javax.swing.JFrame" target="java.awt.Frame" relationship="GENERALIZATION">
+      <point x="83.0" y="-492.0" />
+      <point x="892.7606382978722" y="20869.0" />
+      <point x="1033.5106382978722" y="20869.0" />
+      <point x="0.0" y="814.0" />
+    </edge>
+    <edge source="java.awt.Frame" target="java.awt.MenuContainer" relationship="REALIZATION">
+      <point x="74.0" y="-814.0" />
+      <point x="1107.5106382978722" y="19183.0" />
+      <point x="1293.5319148936169" y="19183.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="javax.swing.JFrame" target="javax.accessibility.Accessible" relationship="REALIZATION">
+      <point x="-83.0" y="-492.0" />
+      <point x="726.7606382978722" y="20869.0" />
+      <point x="402.53191489361694" y="20869.0" />
+      <point x="402.53191489361694" y="20859.0" />
+      <point x="506.4999999999999" y="20859.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="MyFrame" target="javax.swing.JFrame" relationship="GENERALIZATION">
+      <point x="0.0" y="-204.5" />
+      <point x="0.0" y="492.0" />
+    </edge>
+    <edge source="java.awt.Window" target="javax.accessibility.Accessible" relationship="REALIZATION">
+      <point x="-121.75" y="-2274.5" />
+      <point x="697.3856382978722" y="14580.0" />
+      <point x="506.4999999999999" y="14580.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="java.awt.Window" target="java.awt.Container" relationship="GENERALIZATION">
+      <point x="121.75" y="-2274.5" />
+      <point x="940.8856382978722" y="14580.0" />
+      <point x="970.9999999999999" y="14580.0" />
+      <point x="0.0" y="2113.5" />
+    </edge>
+    <edge source="javax.swing.JFrame" target="javax.swing.WindowConstants" relationship="REALIZATION">
+      <point x="-83.0" y="-492.0" />
+      <point x="726.7606382978722" y="20869.0" />
+      <point x="402.53191489361694" y="20869.0" />
+      <point x="402.53191489361694" y="20859.0" />
+      <point x="386.9999999999999" y="20859.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="java.awt.Frame" target="java.awt.Window" relationship="GENERALIZATION">
+      <point x="-74.0" y="-814.0" />
+      <point x="959.5106382978722" y="19183.0" />
+      <point x="819.1356382978722" y="19183.0" />
+      <point x="0.0" y="2274.5" />
+    </edge>
+    <edge source="java.awt.Component" target="java.awt.MenuContainer" relationship="REALIZATION">
+      <point x="0.0" y="-4988.5" />
+      <point x="970.9999999999999" y="274.0" />
+      <point x="1293.5319148936169" y="274.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="javax.swing.JFrame" target="javax.swing.RootPaneContainer" relationship="REALIZATION">
+      <point x="-83.0" y="-492.0" />
+      <point x="726.7606382978722" y="20869.0" />
+      <point x="402.53191489361694" y="20869.0" />
+      <point x="402.53191489361694" y="20859.0" />
+      <point x="129.0" y="20859.0" />
+      <point x="0.0" y="96.0" />
+    </edge>
+    <edge source="java.awt.Container" target="java.awt.Component" relationship="GENERALIZATION">
+      <point x="0.0" y="-2113.5" />
+      <point x="0.0" y="4988.5" />
+    </edge>
+    <edge source="java.awt.Component" target="java.awt.image.ImageObserver" relationship="REALIZATION">
+      <point x="0.0" y="-4988.5" />
+      <point x="970.9999999999999" y="264.0" />
+      <point x="735.5319148936169" y="264.0" />
+      <point x="0.0" y="121.5" />
+    </edge>
+    <edge source="java.awt.Component" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="0.0" y="-4988.5" />
+      <point x="970.9999999999999" y="264.0" />
+      <point x="986.5319148936169" y="264.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="分层" zoom="0.029928868608240504" showDependencies="false" x="705.5" y="11166.5" />
+  <SelectedNodes>
+    <node>MyFrame</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>字段</Category>
+    <Category>方法</Category>
+    <Category>构造函数</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
