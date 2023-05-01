@@ -2,10 +2,6 @@ package lab2;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <h3>JavaSwing</h3>
@@ -15,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class SortMain {
     // 总元组数
-    static final int TOTAL_NUM = 10000000;
+    static final int TOTAL_NUM = 1000000;
 
     // 内存能装下的元组数
     static final int LOAD_NUM = 62500;
@@ -35,39 +31,20 @@ public class SortMain {
     static final File inputFile = new File(dataPath+"/in.txt");
 
     static final File outputFile = new File(dataPath+"/out.txt");
-    static ThreadPoolExecutor executor = new ThreadPoolExecutor(10,100,1, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
+
     public static void createData(int n){
+        List<pojo> pojos = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            pojos.add(new pojo());
+        }
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile))){
-            CountDownLatch downLatch = new CountDownLatch(n);
-            for (int i = 0; i < n; i+=1) {
-                executor.execute(new createThread(writer,downLatch));
-            }
-            downLatch.await();
+            writeData(pojos,writer);
             writer.flush();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    static class createThread implements Runnable{
-        private BufferedWriter writer;
-        private CountDownLatch downLatch;
-        public createThread(BufferedWriter writer,CountDownLatch downLatch) {
-            this.writer = writer;
-            this.downLatch =downLatch;
-        }
-
-        @Override
-        public void run() {
-            try {
-                writer.write(new pojo().toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            downLatch.countDown();
-        }
-    }
-
     public static void writeData(List<pojo> pojos,BufferedWriter writer){
         try{
             for (pojo pojo : pojos) {
@@ -80,36 +57,16 @@ public class SortMain {
     public static void firstSort(){
         try(BufferedReader reader = new BufferedReader(new FileReader(inputFile));){
             List<pojo> cur = null;
-             CountDownLatch downLatch= new CountDownLatch(WAY_NUM);
             for (int i = 0; i < WAY_NUM; i++) {
-                cur = readData(TOTAL_NUM / WAY_NUM, reader);
-                executor.execute(new writeThread(new File(dataPath+"/"+i),cur,downLatch));
+                try(BufferedWriter writer = new BufferedWriter(new FileWriter(dataPath+"/"+i));) {
+                    cur = readData(TOTAL_NUM / WAY_NUM, reader);
+                    Collections.sort(cur);
+                    writeData(cur, writer);
+                    writer.flush();
+                }
             }
-            downLatch.await();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-    static class writeThread implements Runnable{
-        private File file;
-        private List<pojo> cur;
-        private CountDownLatch downLatch;
-        public writeThread(File file, List<pojo> cur,CountDownLatch downLatch) {
-            this.file = file;
-            this.cur = cur;
-            this.downLatch = downLatch;
-        }
-
-        @Override
-        public void run() {
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(file));) {
-                Collections.sort(cur);
-                writeData(cur, writer);
-                writer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            downLatch.countDown();
         }
     }
     public static void secondSort(){
